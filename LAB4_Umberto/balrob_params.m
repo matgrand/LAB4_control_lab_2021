@@ -163,21 +163,21 @@ body.m = chassis.m + batt.m + 2*mot.stat.m;
 body.xb = 0;                                                    % CoM x-pos in body frame
 body.yb = 0;                                                    % CoM y-pos in body frame
 body.zb = (1/body.m)*(chassis.m*chassis.zb + ...                % CoM z-pos in body frame
-batt.m*batt.zb + 2*mot.stat.m*mot.stat.zb);
+          batt.m*batt.zb + 2*mot.stat.m*mot.stat.zb);
 
 % moment of inertias (MoI) wrt principal axes
 body.Ixx = chassis.Ixx + chassis.m*(body.zb-chassis.zb)^2 + ... % MoI along d dim
-batt.Ixx + batt.m*(body.zb-batt.zb)^2 + ...
-2*mot.stat.Ixx + ...
-2*mot.stat.m*(mot.stat.yb^2 + (body.zb-mot.stat.zb)^2);
+            batt.Ixx + batt.m*(body.zb-batt.zb)^2 + ...
+            2*mot.stat.Ixx + ...
+            2*mot.stat.m*(mot.stat.yb^2 + (body.zb-mot.stat.zb)^2);
 
 body.Iyy = chassis.Iyy + chassis.m*(body.zb-chassis.zb)^2 + ... % MoI along w dim
-batt.Iyy + batt.m*(body.zb-batt.zb)^2 + ...
-2*mot.stat.Iyy + ...
-2*mot.stat.m*(body.zb-mot.stat.zb)^2;
+            batt.Iyy + batt.m*(body.zb-batt.zb)^2 + ...
+            2*mot.stat.Iyy + ...
+            2*mot.stat.m*(body.zb-mot.stat.zb)^2;
 
 body.Izz = chassis.Izz + batt.Izz + ...                         % MoI along h dim
-2*mot.stat.Izz + 2*mot.stat.m*mot.stat.yb^2;
+            2*mot.stat.Izz + 2*mot.stat.m*mot.stat.yb^2;
 
 %% Sensors data-Hall-effect encoder
 
