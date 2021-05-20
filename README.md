@@ -1,13 +1,13 @@
-# Project: LAB3_control_lab_2021
+# Project: LAB4_control_lab_2021
 
-A repo for a simple collaboration on lab3 of the control lab course 2021 in UNIPD
+A repo for a simple collaboration on lab4 of the control lab course 2021 in UNIPD
 
 # Instructions: importing the project
 To import this project:
 
 -Open Matlab, click on "new" > Project > From Git
 
--On repository path copy and paste https://github.com/matgrand/LAB3_control_lab_2021
+-On repository path copy and paste https://github.com/matgrand/LAB4_control_lab_2021
 
 -On sandbox choose where you want the project to be located on your pc.
 
