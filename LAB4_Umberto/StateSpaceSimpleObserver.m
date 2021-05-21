@@ -11,7 +11,7 @@ HBE = 1/(Tc*s+1);
 C = Ts/(Ts + Tc);
 
 Hz = HFE;
-Hcz = 1 - H;
+Hcz = 1 - Hz;
 N = 3;
 
 Hw = (1-z^-N)/N/Ts;

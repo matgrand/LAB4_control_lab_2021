@@ -1,3 +1,4 @@
+clear;
 Electromechanical;
 StateSpaceSimpleObserver;
 M11 = M11q;
@@ -41,4 +42,4 @@ Q = diag([q11,q22,q33,q44]);
 r11 = 1/uBar^2;
 rho = 500;
 R = r11*rho; 
-K = dlqr(A,B,Q,R);
+K = dlqr(Phi,Gamma,Q,R);
