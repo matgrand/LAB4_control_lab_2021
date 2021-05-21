@@ -24,7 +24,10 @@ sysC = ss(A,B,zeros(1,size(A,2)),zeros(1,size(B,2)));
 sysD = c2d(sysC,Ts,'zoh');
 [Phi,Gamma,~,~] = ssdata(sysD);
 H = [1,0,0,0];
-
+Phie = [1,H;...
+        zeros(size(Phi,1),1),Phi];
+Gammae = [0;...
+          Gamma];
 bb = zeros(size(Phi,1),1);
 bb = [bb;ones(size(H,1))];
 xx = [Phi - eye(size(Phi,1)),Gamma;H,zeros(size(H,1))]\bb;
@@ -37,12 +40,15 @@ x0 = [0;...
 gammaBar = pi/18;
 omegaBar = pi/360;
 uBar = 1;
-q11 = 1/gammaBar^2;
-q22 = 1/omegaBar^2;
-q33 = 0;
+q11 = 0.1;
+q22 = 1/gammaBar^2;
+q33 = 1/omegaBar^2;
 q44 = 0;
-Q = diag([q11,q22,q33,q44]);
+q55 = 0;
+Q = diag([q11,q22,q33,q44,q55]);
 r11 = 1/uBar^2;
 rho = 500;
 R = r11*rho; 
-K = dlqr(Phi,Gamma,Q,R);
+Ke = dlqr(Phie,Gammae,Q,R);
+Ki = Ke(1);
+K = Ke(2:end);
